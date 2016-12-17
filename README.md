@@ -40,7 +40,7 @@ Take note of the options like "note" and "octave", Twiddle will need them later:
 
 Require the twiddle gem in your project:
 
-```
+```ruby
 require "twiddle"
 ```
 
@@ -48,7 +48,7 @@ require "twiddle"
 
 You can define your devices to use the input however you want:
 
-```
+```ruby
 class Launch < Twiddle::Button
   # class names are important; the Launch class runs code for the "launch" device,
   # configured with "twiddle.button.launch".
@@ -61,7 +61,7 @@ end
 
 Define a device for a slider:
 
-```
+```ruby
 class Reticulate < Twiddle::Slider
   def slide(value)
     # This method is called whenever the reticulate slider is moved.
@@ -79,7 +79,7 @@ end
 
 Define a device for a dial:
 
-```
+```ruby
 class Transporter < Twiddle::Dial
   def press(value)
     # Because dials can have a value when they're pressed we pass that to #press
@@ -102,7 +102,7 @@ end
 Setup and name the interfaces you want to use. Twiddle currently supports
 buttons, sliders and dials.
 
-```
+```ruby
 Twiddle.configure do |twiddle|
   # Choose a name and include the options from the MIDI profile you setup.
   # twiddle.button.<name>   = { <options_from_palette> }
@@ -116,7 +116,7 @@ end
 
 You can set options for each of the devices individually:
 
-```
+```ruby
 # Configure this particular slider to wait 2 seconds after the slider stops
 # moving before calling #slide_final:
 Twiddle.configure do |twiddle|
@@ -125,7 +125,7 @@ end
 ```
 
 You can also set default options for all devices of a particular type:
-```
+```ruby
 # Configure ALL sliders to timeout after 1 second:
 # This setting will be ignored by any sliders that have their own specific
 # timeout configured.
@@ -135,7 +135,7 @@ end
 ```
 
 Note that you can configure global and individual settings together:
-```
+```ruby
 Twiddle.configure do |twiddle|
   twiddle.slider.timeout = 2
   twiddle.dial.timeout = 1
@@ -147,7 +147,7 @@ end
 ```
 
 To see all of the configuration settings with their values:
-```
+```ruby
 Twiddle.config
 # =>
 # {
