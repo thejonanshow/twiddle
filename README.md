@@ -20,19 +20,25 @@ Or install it yourself as:
 
 ## Usage
 
+### Palette Software Setup
+
 The Palette software is required to use this gem: https://palettegear.com/start
 
-Download and install Palette then setup a MIDI profile:
+Download and install Palette, then setup a MIDI profile:
 
 ![new_midi_screenshot](https://cloud.githubusercontent.com/assets/270746/21290147/0a92f156-c464-11e6-9c2d-c542236c95b3.png)
 
-Then setup your individual devices:
+Setup your individual devices:
 
 ![button_setup_screenshot](https://cloud.githubusercontent.com/assets/270746/21290209/757f5426-c466-11e6-9168-a63bc16bf8c2.png)
 
 Take note of the options like "note" and "octave", Twiddle will need them later:
 
 ![note_octave_screenshot](https://cloud.githubusercontent.com/assets/270746/21290214/99cb0776-c466-11e6-98d9-f0a12c9768ee.jpg)
+
+### Twiddle Setup
+
+Require the twiddle gem in your project:
 
 ```
 require "twiddle"
@@ -53,12 +59,14 @@ Twiddle.configure do |twiddle|
 end
 ```
 
-Now you can write define your classes to use the input however you want:
+#### Define Twiddle Devices
+
+You can define your devices to use the input however you want:
 
 ```
 class Launch < Twiddle::Button
-  # class names are important; the Launch class runs code for the configuration
-  # "twiddle.button.launch".
+  # class names are important; the Launch class runs code for the "launch" device,
+  # configured with "twiddle.button.launch".
 
   def press
     # This code will run whenever the "launch" button is pressed.
@@ -66,7 +74,7 @@ class Launch < Twiddle::Button
 end
 ```
 
-Define a class for a slider:
+Define a device for a slider:
 
 ```
 class Reticulate < Twiddle::Slider
@@ -84,7 +92,7 @@ class Reticulate < Twiddle::Slider
 end
 ```
 
-Define a class for a dial:
+Define a device for a dial:
 
 ```
 class Transporter < Twiddle::Dial
@@ -102,6 +110,9 @@ class Transporter < Twiddle::Dial
     # Called when the dial settles on a value for longer than half a second.
   end
 end
+
+### Configure Twiddle Devices
+
 ```
 
 You can set options for each of the devices individually:
