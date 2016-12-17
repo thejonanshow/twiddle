@@ -44,21 +44,6 @@ Require the twiddle gem in your project:
 require "twiddle"
 ```
 
-Then setup and name the interfaces you want to use. Twiddle currently supports
-buttons, sliders and dials.
-
-```
-Twiddle.configure do |twiddle|
-  # Choose a name and include the options from the MIDI profile you setup.
-  # twiddle.button.<name>   = { <options_from_palette> }
-
-  twiddle.button.launch     = { note: "D#", octave: -2 }
-  twiddle.button.reticulate = { note: "F#", octave: -1 }
-  twiddle.slider.warp       = { cc: 1 }
-  twiddle.dial.transporter  = { note: "C#", octave: 0, cc: 4 }
-end
-```
-
 #### Define Twiddle Devices
 
 You can define your devices to use the input however you want:
@@ -110,9 +95,23 @@ class Transporter < Twiddle::Dial
     # Called when the dial settles on a value for longer than half a second.
   end
 end
+```
 
 ### Configure Twiddle Devices
 
+Setup and name the interfaces you want to use. Twiddle currently supports
+buttons, sliders and dials.
+
+```
+Twiddle.configure do |twiddle|
+  # Choose a name and include the options from the MIDI profile you setup.
+  # twiddle.button.<name>   = { <options_from_palette> }
+
+  twiddle.button.launch     = { note: "D#", octave: -2 }
+  twiddle.button.reticulate = { note: "F#", octave: -1 }
+  twiddle.slider.warp       = { cc: 1 }
+  twiddle.dial.transporter  = { note: "C#", octave: 0, cc: 4 }
+end
 ```
 
 You can set options for each of the devices individually:
