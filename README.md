@@ -1,6 +1,6 @@
 # Twiddle
 
-Twiddle is a gem to process MIDI input from Palette hardware interfaces.
+Twiddle is a gem to process MIDI input from Palette hardware interfaces: https://palettegear.com
 
 ## Installation
 
